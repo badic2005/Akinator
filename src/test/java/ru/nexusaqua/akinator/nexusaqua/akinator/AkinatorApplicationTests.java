@@ -1,4 +1,4 @@
-package ru.nexusaqua.akinator;
+package ru.nexusaqua.akinator.nexusaqua.akinator;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
