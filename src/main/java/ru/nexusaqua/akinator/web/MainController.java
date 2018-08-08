@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
 
     @RequestMapping("/")
-    String home() {
-        return "static/index.html";
+    public String greeting() {
+        return "index";
     }
 }
