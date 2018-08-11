@@ -49,6 +49,7 @@ public class CustomerController {
     @DeleteMapping
     public void remove(@RequestBody(required = true) final Customer customer) {
 
+
         customerRepository.delete(customer);
 
     }

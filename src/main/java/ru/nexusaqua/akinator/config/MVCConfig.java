@@ -11,4 +11,5 @@ package ru.nexusaqua.akinator.config;
 //        registry.addViewController("/login").setViewName("login");
 //    }
 //
+
 //}
