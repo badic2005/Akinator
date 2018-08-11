@@ -74,7 +74,7 @@
         'use strict';
         document.querySelector('#send').onclick = function () {
 
-            var arr = {
+            let arr = {
                         "inn" : document.querySelector('input[name=inn]').value,
                         "company_name" : document.querySelector('input[name=company_name]').value,
                         "fio_kl" : document.querySelector('input[name=fio_kl]').value,
@@ -87,8 +87,9 @@
                         "address" : document.querySelector('input[name=address]').value,
                         "comment" : document.querySelector('textarea[name=comment]').value
                     },
-                    //strJson = JSON.stringify(arr);
-                    strJson = 'name=' + arr.company_name + '&' + 'inn=' + arr.inn;
+                    strJson = JSON.stringify(arr);
+                   // let = 'name=' + arr.company_name + '&' + 'inn=' + arr.inn;
+
 //document.querySelector('#result').innerHTML = (document.getElementById("klient").checked);
 
 //alert(strJson);
@@ -140,8 +141,10 @@
             }
         }
 
-        request.open('POST', 'https://akinatoraqua.herokuapp.com/customers');
-        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //request.open('POST', 'https://akinatoraqua.herokuapp.com/customers');
+        request.open('POST', 'http://localhost:8080/customers');
+        request.setRequestHeader('Accept', 'application/json');
+        request.setRequestHeader('Content-Type', 'application/json');
         alert(strJson);
         request.send(strJson);
         //request.send('param=' + strJson);
