@@ -2,7 +2,7 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title>Nexus Aqua. Project - Akinator</title>
+  <title>Nexus Aqua. Project - Akinator!!!</title>
      <script src="js/script.js"></script>
  <link rel="stylesheet" href="css/style_akinator.css">
  </head>
