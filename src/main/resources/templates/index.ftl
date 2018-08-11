@@ -141,8 +141,8 @@
             }
         }
 
-        //request.open('POST', 'https://akinatoraqua.herokuapp.com/customers');
-        request.open('POST', 'http://localhost:8080/customers');
+        request.open('POST', 'https://akinatoraqua.herokuapp.com/customers');
+     //   request.open('POST', 'http://localhost:8080/customers');
         request.setRequestHeader('Accept', 'application/json');
         request.setRequestHeader('Content-Type', 'application/json');
         alert(strJson);
