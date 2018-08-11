@@ -99,12 +99,12 @@
             ajaxPost(strJson);
 
         };
-        document.querySelector('#download').onclick = function () {
-            ajaxDownload('download.php', formFill);
-
-
-
-        }
+        // document.querySelector('#download').onclick = function () {
+        //     ajaxDownload('download.php', formFill);
+        //
+        //
+        //
+        // }
 
 
         document.querySelector('#clear').onclick = function() {
