@@ -1,6 +1,8 @@
 
 window.onload = function () {
     'use strict';
+    const host = window.location.origin;
+
     document.querySelector('#send').onclick = function () {
 
         let arr = {
@@ -70,8 +72,7 @@ function ajaxPost(strJson){
         }
     }
 
-   // request.open('POST', 'https://akinatoraqua.herokuapp.com/customers');
-       request.open('POST', 'http://localhost:8080/customers');
+    request.open('POST', host+'/customers');
     request.setRequestHeader('Accept', 'application/json');
     request.setRequestHeader('Content-Type', 'application/json');
     alert(strJson);
