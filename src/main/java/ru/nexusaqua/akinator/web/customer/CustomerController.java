@@ -1,6 +1,7 @@
 package ru.nexusaqua.akinator.web.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.nexusaqua.akinator.model.Customer;
@@ -11,11 +12,15 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("customers")
 public class CustomerController {
 
     @Autowired
     private CustomerRepository customerRepository;
+
+    @Value("${cross-origin}")
+    private String crossOrigin;
 
     @GetMapping
     @ResponseBody
@@ -25,6 +30,8 @@ public class CustomerController {
 
         if(filter != null && !filter.isEmpty()) {
             customers = customerRepository.findAllByNameContaining(filter);
+        } else {
+            customers = customerRepository.findAll();
         }
 
         return customers;
