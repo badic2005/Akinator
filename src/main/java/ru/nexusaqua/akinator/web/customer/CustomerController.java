@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("customers")
 public class CustomerController {
 
@@ -26,7 +26,7 @@ public class CustomerController {
     @ResponseBody
     public Iterable<Customer> get(@RequestParam(required = false) final String filter) {
         // This returns a JSON or XML with the users
-        Iterable<Customer> customers = new ArrayList<>();
+        Iterable<Customer> customers;
 
         if(filter != null && !filter.isEmpty()) {
             customers = customerRepository.findAllByNameContaining(filter);
@@ -37,27 +37,32 @@ public class CustomerController {
         return customers;
     }
 
+    @GetMapping("/{id}")
+    public Customer getCustomer(@PathVariable int id) {
+        if(id != 0) {
+            Customer customer = customerRepository.findById(id).orElse(null);
+            return customer;
+        }
+
+        return null;
+    }
+
     @PostMapping
-    @ResponseBody
     public Customer create(@RequestBody final Customer customer) {
-
         customerRepository.save(customer);
         return customer;
     }
 
-    @PutMapping
-    @ResponseBody
-    public Customer update(@RequestBody final Customer customer) {
-
+    @PutMapping("/{id}")
+    public boolean update(@PathVariable int id, @RequestBody final Customer customer) {
         customerRepository.save(customer);
-        return customer;
+        return true;
     }
 
-    @DeleteMapping
-    public void remove(@RequestBody(required = true) final Customer customer) {
+    @DeleteMapping("/{id}")
+    public void remove(@PathVariable int id) {
 
-
-        customerRepository.delete(customer);
+        customerRepository.deleteById(id);
 
     }
 }
