@@ -13,6 +13,6 @@ public class MainController {
     @RequestMapping("/")
     public String greeting(Map<String, String> model) {
 
-        return "index";
+        return "index.html";
     }
 }

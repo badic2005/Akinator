@@ -19,9 +19,6 @@ public class CustomerController {
     @Autowired
     private CustomerRepository customerRepository;
 
-    @Value("${cross-origin}")
-    private String crossOrigin;
-
     @GetMapping
     @ResponseBody
     public Iterable<Customer> get(@RequestParam(required = false) final String filter) {
