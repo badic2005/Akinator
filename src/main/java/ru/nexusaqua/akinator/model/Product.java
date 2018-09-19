@@ -1,21 +1,28 @@
 package ru.nexusaqua.akinator.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Customer {
+public class Product {
+
     @Id
     @GeneratedValue
-    private Integer id;
+    private String id;
+
     private String name;
-    private String inn;
+
+    @OneToMany(mappedBy = "product")
+    private Set<Property> properties;
 }
