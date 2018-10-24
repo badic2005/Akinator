@@ -6,32 +6,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Property {
-
-    @Id
-    @GeneratedValue
-    private String id;
+public class Property<T> {
 
     private String name;
 
     private String measure;
 
-    private String value;
+    private T value;
 
     private Double min;
 
     private Double max;
 
-    @ManyToOne
-    private Product product;
 }

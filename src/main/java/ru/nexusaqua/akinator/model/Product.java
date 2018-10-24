@@ -1,16 +1,12 @@
 package ru.nexusaqua.akinator.model;
 
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
-@Entity
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -18,11 +14,7 @@ import java.util.Set;
 public class Product {
 
     @Id
-    @GeneratedValue
-    private String id;
-
     private String name;
 
-    @OneToMany(mappedBy = "product")
-    private Set<Property> properties;
+    private Property[] properties;
 }
